@@ -8,7 +8,7 @@ Build-Depends: debhelper (>= 9),
                libicu-dev,
                libreadline-dev,
                perl
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-rakudo/nqp.git
 Vcs-Git: git://anonscm.debian.org/pkg-rakudo/nqp.git
 Homepage: https://github.com/perl6/nqp
