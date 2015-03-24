@@ -7,6 +7,7 @@ Build-Depends: debhelper (>= 9),
                libgmp-dev,
                libicu-dev,
                libreadline-dev,
+               moarvm (>= 2015.03),
                perl
 Standards-Version: 3.9.6
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-rakudo/nqp.git
@@ -17,7 +18,7 @@ Package: nqp
 Architecture: i386 amd64 armel armhf kfreebsd-amd64 kfreebsd-i386
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         ${parrot:Depends}
+         ${moarvm:Depends}
 Description: Not Quite Perl compiler
  "Not Quite Perl" is a compiler for quickly generating PIR routines from
  Perl6-like code. The key feature of NQP is that it's designed to be a very

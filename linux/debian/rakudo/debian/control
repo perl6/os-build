@@ -8,6 +8,7 @@ Build-Depends: debhelper (>= 9),
                libicu-dev,
                libreadline-dev,
                nqp (>= 2015.03),
+               moarvm (>= 2015.03),
                perl
 Standards-Version: 3.9.5
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-rakudo/pkg-rakudo.git
@@ -18,8 +19,8 @@ Package: rakudo
 Architecture:  i386 amd64 armel armhf kfreebsd-amd64 kfreebsd-i386
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         ${parrot:Depends},
-         ${nqp:Depends}
+         ${moarvm:Depends},
+         ${nqp:Depends},
 Provides: perl6
 Description: Perl 6 implementation on top of Parrot virtual machine
  Rakudo Perl is a compiler that implements the Perl 6 specification and runs on
