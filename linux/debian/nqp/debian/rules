@@ -1,10 +1,10 @@
 #!/usr/bin/make -f
 
 %:
-	dh $@ --with=parrot
+	dh $@ --gen-moar
 
 override_dh_auto_configure:
-	perl Configure.pl --with-parrot=/usr/bin/parrot
+	perl Configure.pl --gen-moar
 
 override_dh_auto_build:
 	dh_auto_build
