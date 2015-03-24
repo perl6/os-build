@@ -1,7 +1,7 @@
-nqp (2015.03-1) UNRELEASED; urgency=medium
+nqp (2015.03-1.1) UNRELEASED; urgency=medium
 
   * Non-maintainer upload
-  * update for release version 2015.03
+  * update for current Rakudo release version
 
  -- Paul Cochrane <paul@liekut.de>  Tue, 24 Mar 2015 18:32:55 +0200
 
