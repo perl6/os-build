@@ -1,5 +1,8 @@
 #!/usr/bin/make -f
 
+PACKAGE = $(shell dh_listpackages)
+TMP     = $(CURDIR)/debian/$(PACKAGE)
+
 %:
 	dh $@
 
@@ -9,3 +12,7 @@ override_dh_auto_configure:
 override_dh_auto_build:
 	dh_auto_build
 	pod2man --name=nqp-p debian/running.pod debian/nqp-p.1
+
+override_dh_auto_install:
+	dh_auto_install
+	$(RM) $(TMP)/usr/languages/nqp/lib/profiler/template.html
