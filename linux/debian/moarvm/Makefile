@@ -19,7 +19,6 @@ deb: download-moarvm
 	mv $(DEBUILD_DIR)/MoarVM-$(VERSION) $(DEBUILD_DIR)/moarvm-$(VERSION)
 	cp -r debian $(DEBUILD_DIR)/moarvm-$(VERSION)/
 	cd $(DEBUILD_DIR)/moarvm-$(VERSION)/debian; debuild -us -uc
-	cd $(DEBUILD_DIR); sudo pbuilder --build moarvm_$(VERSION)-1.dsc
 	@echo "Now check the .deb file in /var/cache/pbuilder/result"
 
 clean:
