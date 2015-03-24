@@ -17,7 +17,6 @@ deb: download-nqp
 	tar -C $(DEBUILD_DIR) -xvzf $(DEBUILD_DIR)/nqp_$(VERSION).orig.tar.gz
 	cp -r debian $(DEBUILD_DIR)/nqp-$(VERSION)/
 	cd $(DEBUILD_DIR)/nqp-$(VERSION)/debian; debuild -us -uc
-	cp $(DEBUILD_DIR)/nqp_$(VERSION)-1_all.deb dist
 	cd $(DEBUILD_DIR); sudo pbuilder --build nqp_$(VERSION)-1.dsc
 	@echo "Now check the .deb file in /var/cache/pbuilder/result"
 
