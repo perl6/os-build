@@ -1,4 +1,3 @@
   - Installation prefix for 3rdparty libs
   - Better way to handle so files?
-  - Don't skip shlib step?
   - lintian warnings

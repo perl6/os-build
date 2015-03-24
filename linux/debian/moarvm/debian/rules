@@ -3,7 +3,7 @@
 	dh $@
 
 override_dh_auto_configure:
-	perl Configure.pl --prefix=/usr
+	perl Configure.pl --static --prefix=/usr
 
 override_dh_auto_install:
 	dh_auto_install
