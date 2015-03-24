@@ -1,0 +1,22 @@
+Description: Do not fetch upstream version from git
+Origin: vendor
+Forwarded: not-needed
+Author: Alessandro Ghedini <ghedo@debian.org>
+Reviewed-by: Alessandro Ghedini <ghedo@debian.org>
+Last-Update: 2013-10-24
+
+--- a/tools/build/gen-version.pl
++++ b/tools/build/gen-version.pl
+@@ -12,12 +12,6 @@
+ my $VERSION = <$fh>;
+ close($fh);
+ 
+-# .git is a file and not a directory in submodule
+-if (-e '.git' && open(my $GIT, '-|', "git describe --tags")) {
+-    $VERSION = <$GIT>;
+-    close($GIT);
+-}
+-
+ chomp $VERSION;
+ 
+ my $builddate = strftime('%Y-%m-%dT%H:%M:%SZ', gmtime);

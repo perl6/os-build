@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --with=parrot
+
+override_dh_auto_configure:
+	perl Configure.pl --with-parrot=/usr/bin/parrot
+
+override_dh_auto_build:
+	dh_auto_build
+	pod2man --name=nqp-p debian/running.pod debian/nqp-p.1

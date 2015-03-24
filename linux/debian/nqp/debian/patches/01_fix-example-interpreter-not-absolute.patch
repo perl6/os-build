@@ -1,0 +1,38 @@
+Description: Use absolute interpreter in examples
+Origin: vendor
+Forwarded: not-needed
+Author: Alessandro Ghedini <ghedo@debian.org>
+Reviewed-by: Alessandro Ghedini <ghedo@debian.org>
+Last-Update: 2013-10-24
+
+--- a/examples/fib.nqp
++++ b/examples/fib.nqp
+@@ -1,4 +1,4 @@
+-#! nqp
++#!/usr/bin/nqp
+ 
+ sub fib($n) {
+     $n < 2 ?? $n !! fib($n-1) + fib($n - 2);
+--- a/examples/hello_world.nqp
++++ b/examples/hello_world.nqp
+@@ -1,3 +1,3 @@
+-#!nqp
++#!/usr/bin/nqp
+ 
+ say("Hello, awesome Not Quite Perl 6 World!");
+--- a/examples/json.nqp
++++ b/examples/json.nqp
+@@ -1,4 +1,4 @@
+-#! nqp
++#!/usr/bin/nqp
+ 
+ # A JSON compiler written in NQP.  To use this compiler, first
+ # precompile the code to PIR, then run that:
+--- a/examples/loops.nqp
++++ b/examples/loops.nqp
+@@ -1,4 +1,4 @@
+-#! nqp
++#!/usr/bin/nqp
+ # Example of a while loop
+ 
+ my $i := 0;

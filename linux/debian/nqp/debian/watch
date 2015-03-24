@@ -1,0 +1,3 @@
+version=3
+
+http://rakudo.org/downloads/nqp/nqp-([\d+\.]*).tar.gz

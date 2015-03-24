@@ -1,0 +1,96 @@
+Description: Fix missing prototype
+ add missing protoypes in dyncall library.
+Author: dod
+--- a/3rdparty/dyncall/dyncall/dyncall.h
++++ b/3rdparty/dyncall/dyncall/dyncall.h
+@@ -126,6 +126,8 @@
+ 
+ DC_API DCstruct*  dcDefineStruct  (const char* signature);
+ 
++const char* dcGetErrorString(int mode) ;
++
+ 
+ #ifdef __cplusplus
+ }
+--- a/3rdparty/dyncall/dyncall/dyncall_callvm_x64.h
++++ b/3rdparty/dyncall/dyncall/dyncall_callvm_x64.h
+@@ -105,6 +105,7 @@
+ } DCCallVM_x64;
+ 
+ DCCallVM* dcNewCallVM_x64(DCsize size);
++void dc_callvm_call_x64(DCCallVM* in_self, DCpointer target);
+ 
+ 
+ #endif /* DYNCALL_CALLVM_X64_H */
+--- a/3rdparty/dyncall/dyncall/dyncall_callvm_arm32_arm.h
++++ b/3rdparty/dyncall/dyncall/dyncall_callvm_arm32_arm.h
+@@ -53,7 +53,7 @@
+ } DCCallVM_arm32_arm;
+ 
+ DCCallVM* dcNewCallVM_arm32_arm(DCsize size);
+-
++void dc_callvm_call_arm32_arm(DCCallVM* in_self, DCpointer target);
+ 
+ #endif /* DYNCALL_CALLVM_ARM32_ARM_H */
+ 
+--- a/3rdparty/dyncall/dyncall/dyncall_callvm_arm32_thumb.h
++++ b/3rdparty/dyncall/dyncall/dyncall_callvm_arm32_thumb.h
+@@ -53,7 +53,9 @@
+ } DCCallVM_arm32_thumb;
+ 
+ DCCallVM* dcNewCallVM_arm32_thumb(DCsize size);
+-
++void dc_callvm_call_arm32_thumb(DCCallVM* in_self, DCpointer target);
++DClong dc_callvm_call_arm32_thumb_word(DCCallVM* in_self, DCpointer target);
++DClonglong dc_callvm_call_arm32_thumb_dword(DCCallVM* in_self, DCpointer target);
+ 
+ #endif /* DYNCALL_CALLVM_ARM32_THUMB_H */
+ 
+--- a/3rdparty/dyncall/dyncall/dyncall_callvm_ppc32.h
++++ b/3rdparty/dyncall/dyncall/dyncall_callvm_ppc32.h
+@@ -57,5 +57,8 @@
+ 
+ DCCallVM* dcNewCallVM_ppc32(DCsize size);
+ 
++void dc_callvm_call_ppc32_darwin(DCCallVM* in_self, DCpointer target);
++void dc_callvm_call_ppc32_sysv(DCCallVM* in_self, DCpointer target);
++
+ #endif /* DYNCALL_CALLVM_PPC32_H */
+ 
+--- a/3rdparty/dyncall/dyncall/dyncall_callvm_x86.h
++++ b/3rdparty/dyncall/dyncall/dyncall_callvm_x86.h
+@@ -69,6 +69,12 @@
+ DCCallVM* dcNewCallVM_x86_win32_fast_gnu(DCsize size);
+ DCCallVM* dcNewCallVM_x86_win32_this_ms(DCsize size);
+ 
++void dc_callvm_call_x86_cdecl(DCCallVM* in_self, DCpointer target);
++void dc_callvm_call_x86_win32_std(DCCallVM* in_self, DCpointer target);
++void dc_callvm_call_x86_win32_this_ms(DCCallVM* in_self, DCpointer target);
++void dc_callvm_call_x86_sys_int80h_linux(DCCallVM* in_self, DCpointer target);
++void dc_callvm_call_x86_sys_int80h_bsd(DCCallVM* in_self, DCpointer target);
++
+ #endif
+ 
+ #endif /* DYNCALL_CALLVM_X86_H */
+--- a/3rdparty/dyncall/dyncall/dyncall_callvm_mips_o32.h
++++ b/3rdparty/dyncall/dyncall/dyncall_callvm_mips_o32.h
+@@ -40,6 +40,7 @@
+ } DCCallVM_mips_o32;
+ 
+ DCCallVM* dcNewCallVM_mips_o32(DCsize size);
++void dc_callvm_call_mips_o32(DCCallVM* in_self, DCpointer target);
+ 
+ #endif /* DYNCALL_CALLVM_MIPS_O32_H */
+ 
+--- a/3rdparty/dyncall/dyncallback/dyncall_thunk_ppc32.h
++++ b/3rdparty/dyncall/dyncallback/dyncall_thunk_ppc32.h
+@@ -34,6 +34,9 @@
+   void          (*addr_entry)();              /* offset: 20 */
+ };
+ 
++unsigned short hi16(unsigned int x);
++unsigned short lo16(unsigned int x);
++
+ #define DCTHUNK_SIZE_PPC32 24
+ 
+ #endif /* DYNCALL_THUNK_PPC32_H */

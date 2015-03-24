@@ -1,0 +1,55 @@
+=head1 NAME
+
+nqp-p - Not Quite Perl Compiler
+
+=head1 SYNOPSIS
+
+ nqp-p [switches] [--] [programfile] [arguments]
+
+=head1 DESCRIPTION
+
+With no arguments, enters a REPL. With a C<[programfile]> or the C<-e>
+option, compiles the given program and by default also executes the
+compiled code.
+
+  -c                   check syntax only (runs BEGIN and CHECK blocks)
+  -e program           one line of program
+  -h, --help           display this help text
+  --target=[stage]     specify compilation stage to emit
+  -t, --trace=[flags]  enable trace flags, see 'parrot --help-debug'
+  --encoding=[mode]    specify string encoding mode
+  -o, --output=[name]  specify name of output file
+  -v, --version        display version information
+  --stagestats         display time spent in the compilation stages
+  --ll-backtrace       display a low level backtrace on errors
+
+Note that only boolean single-letter options may be bundled
+
+Supported stages for --target are:
+
+ parse past post pir evalpmc
+
+where
+
+ parse = a representation of the parse tree
+ past  = an intermediate format representing the parrot abstract syntax tree
+ post  = an intermediate format representing the parrot opcode syntax tree
+ pir   = the parrot intermediate representation
+
+=head1 PARROT OPTIONS
+
+To specify options to the underlying parrot VM, you must explicitly run
+parrot; you cannot specify these options by using the C<perl6> executable.
+
+ parrot [parrot switches] perl6.pbc [switches] [--] [programfile] [arguments]
+
+See C<parrot --help> for a list of valid parrot options.
+
+=head1 AUTHORS
+
+Written by the NQP contributors, see the CREDITS file.
+
+This manual page was written by Alessandro Ghedini for the Debian project, and
+may be used by others.
+
+=cut

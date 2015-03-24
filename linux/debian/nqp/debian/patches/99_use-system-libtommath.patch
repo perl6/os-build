@@ -1,0 +1,38 @@
+--- a/src/pmc/sixmodelobject.pmc
++++ b/src/pmc/sixmodelobject.pmc
+@@ -28,7 +28,7 @@
+ 
+ /* We need to know how to boolify bigints. Really need something better,
+  * but this will do for now. */
+-#include "../../3rdparty/libtommath/tommath.h"
++#include "tommath.h"
+ #include "../6model/reprs/P6bigint.h"
+ #define bigint_repr_id 7
+ 
+--- a/tools/build/Makefile.in
++++ b/tools/build/Makefile.in
+@@ -44,7 +44,7 @@
+ PMC2C             = $(PERL) $(PARROT_TOOLS_DIR)/build/pmc2c.pl
+ PMC2C_INCLUDES    = --include src/pmc --include $(PARROT_SRC_DIR) --include $(PARROT_SRC_DIR)/pmc
+ CINCLUDES         = -I$(PARROT_INCLUDE_DIR) -I$(PARROT_INCLUDE_DIR)/pmc
+-LINKARGS          = $(LDFLAGS) $(LD_LOAD_FLAGS) $(LIBPARROT) @libs@ @icu_shared@
++LINKARGS          = $(LDFLAGS) $(LD_LOAD_FLAGS) $(LIBPARROT) @libs@ @icu_shared@ -ltommath
+ 
+ # nqp directories
+ DYNEXT_DIR       = dynext
+@@ -942,11 +942,11 @@
+ 3rdparty/libtommath/bn_s_mp_sub$(O): 3rdparty/libtommath/bn_s_mp_sub.c $(LIBTOMMATH_H)
+ 	cd 3rdparty/libtommath && $(CC) -c @cc_o_out@bn_s_mp_sub$(O) -I. $(CFLAGS) bn_s_mp_sub.c
+ 
+-$(OPS_DIR)/$(BIGINT_OPS)$(LOAD_EXT): $(OPS_DIR)/$(BIGINT_OPS_SOURCE) $(LIBTOMMATH_BIN) $(LIBTOMMATH_H) src/6model/reprs/P6bigint.h src/6model/reprs/P6bigint.c
++$(OPS_DIR)/$(BIGINT_OPS)$(LOAD_EXT): $(OPS_DIR)/$(BIGINT_OPS_SOURCE) src/6model/reprs/P6bigint.h src/6model/reprs/P6bigint.c
+ 	cd $(OPS_DIR) && $(OPS2C) C --dynamic $(BIGINT_OPS_SOURCE)
+-	cd $(OPS_DIR) && $(CC) -c @cc_o_out@$(BIGINT_OPS)$(O) $(CINCLUDES) -I../../3rdparty/libtommath $(CFLAGS) $(BIGINT_OPS).c
+-	cd src/6model/reprs && $(CC) -c @cc_o_out@P6bigint$(O) -I../../../$(PMC_DIR) -I../../../3rdparty/libtommath $(CINCLUDES) $(CFLAGS) P6bigint.c
+-	cd $(OPS_DIR) && $(LD) @ld_out@$(BIGINT_OPS)$(LOAD_EXT) $(BIGINT_OPS)$(O) ../../3rdparty/libtommath/*$(O) ../6model/reprs/P6bigint$(O) $(LINKARGS)
++	cd $(OPS_DIR) && $(CC) -c @cc_o_out@$(BIGINT_OPS)$(O) $(CINCLUDES) $(CFLAGS) $(BIGINT_OPS).c
++	cd src/6model/reprs && $(CC) -c @cc_o_out@P6bigint$(O) -I../../../$(PMC_DIR) $(CINCLUDES) $(CFLAGS) P6bigint.c
++	cd $(OPS_DIR) && $(LD) @ld_out@$(BIGINT_OPS)$(LOAD_EXT) $(BIGINT_OPS)$(O) ../6model/reprs/P6bigint$(O) $(LINKARGS)
+ 
+ $(DYNCALL_BIN):
+ 	@dyncall_build@

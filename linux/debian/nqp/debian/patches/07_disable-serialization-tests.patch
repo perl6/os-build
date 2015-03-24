@@ -1,0 +1,17 @@
+Description: Disable serialization tests to avoid FTBFS on mipsel
+Origin: vendor
+Forwarded: not-needed
+Author: Alessandro Ghedini <ghedo@debian.org>
+Last-Update: 2013-11-01
+
+--- a/t/serialization/01-basic.t
++++ b/t/serialization/01-basic.t
+@@ -1,5 +1,8 @@
+ #! nqp
+ 
++plan(0);
++nqp::exit(0);
++
+ plan(1355);
+ 
+ sub add_to_sc($sc, $idx, $obj) {

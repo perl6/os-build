@@ -1,0 +1,5 @@
+examples/CallFromJava.java
+examples/fib.nqp
+examples/hello_world.nqp
+examples/json.nqp
+examples/loops.nqp

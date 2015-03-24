@@ -1,0 +1,31 @@
+Source: nqp
+Maintainer: Debian Rakudo Maintainers <pkg-rakudo-devel@lists.alioth.debian.org>
+Uploaders: Dominique Dumont <dod@debian.org>
+Section: interpreters
+Priority: optional
+Build-Depends: debhelper (>= 9),
+               libgmp-dev,
+               libicu-dev,
+               libreadline-dev,
+               parrot-devel (>= 5.9.0),
+               perl
+Standards-Version: 3.9.5
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-rakudo/nqp.git
+Vcs-Git: git://anonscm.debian.org/pkg-rakudo/nqp.git
+Homepage: https://github.com/perl6/nqp
+
+Package: nqp
+Architecture: i386 amd64 armel armhf kfreebsd-amd64 kfreebsd-i386
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         ${parrot:Depends}
+Description: Not Quite Perl compiler
+ "Not Quite Perl" is a compiler for quickly generating PIR routines from
+ Perl6-like code. The key feature of NQP is that it's designed to be a very
+ small compiler (as compared with, say, perl6 or Rakudo) and is focused on being
+ a high-level way to create compilers and libraries for virtual machines (such
+ as the Parrot Virtual Machine).
+ .
+ Unlike a full-fledged implementation of Perl 6, NQP strives to have as small a
+ runtime footprint as it can, while still providing a Perl 6 object model and
+ regular expression engine for the virtual machine.

@@ -1,0 +1,29 @@
+Description: Use dpkg-architecture to guess the build OS and arch
+ This is to avoid misbuilding on e.g. chroots.
+Forwarded: not-needed
+Author: Alessandro Ghedini <ghedo@debian.org>
+Origin: vendor
+Reviewed-by: Alessandro Ghedini <ghedo@debian.org>
+Last-Update: 2012-04-23
+--- a/3rdparty/dyncall/configure
++++ b/3rdparty/dyncall/configure
+@@ -40,8 +40,8 @@
+   esac
+ done
+ printf "PREFIX=${PREFIX:=/usr/local}\n" >>$C
+-case ${TARGET:=`uname`} in
+-  Linux)
++case ${TARGET:=`dpkg-architecture -qDEB_BUILD_ARCH_OS`} in
++  Linux|linux)
+     if [ -z "${CFLAGS}" ]; then
+       printf "CFLAGS=-fPIC\n" >>$C
+     fi
+@@ -50,7 +50,7 @@
+   OpenBSD|NetBSD)
+     printf "LDFLAGS=-lm\n" >>$C
+     ;;
+-  FreeBSD)
++  FreeBSD|kfreebsd)
+     printf "LDFLAGS=-lm\n" >>$C
+     printf "RM=rm -f\n" >>$C
+     ;;

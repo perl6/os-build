@@ -1,0 +1,30 @@
+Description: Force dyncall compilation to use cflags
+ this patch forces dyncall to be compiled with CFLAGS=-fPIC.
+ .
+ As a bonus, this also avoid dyncall to be compiled 
+ with nqp's CFLAGS. dyncall cannot compile with
+ the strict compilation flags used by nqp
+Author: dod
+--- a/3rdparty/dyncall/configure
++++ b/3rdparty/dyncall/configure
+@@ -42,16 +42,15 @@
+ printf "PREFIX=${PREFIX:=/usr/local}\n" >>$C
+ case ${TARGET:=`dpkg-architecture -qDEB_BUILD_ARCH_OS`} in
+   Linux|linux)
+-    if [ -z "${CFLAGS}" ]; then
+-      printf "CFLAGS=-fPIC\n" >>$C
+-    fi
+-    printf "LDFLAGS=-lm -ldl\n" >>$C
++    printf 'CFLAGS=%s -fPIC\n' "`dpkg-buildflags --get CFLAGS`" >>$C
++    printf 'LDFLAGS=-lm -ldl %s\n' "`dpkg-buildflags --get LDFLAGS`" >>$C
+     ;;
+   OpenBSD|NetBSD)
+     printf "LDFLAGS=-lm\n" >>$C
+     ;;
+   FreeBSD|kfreebsd)
+-    printf "LDFLAGS=-lm\n" >>$C
++    printf 'CFLAGS=%s -fPIC\n' "`dpkg-buildflags --get CFLAGS`" >>$C
++    printf 'LDFLAGS=-lm -ldl %s\n' "`dpkg-buildflags --get LDFLAGS`" >>$C
+     printf "RM=rm -f\n" >>$C
+     ;;
+   MacOSX|Darwin)
