@@ -1,0 +1,188 @@
+rakudo (2014.07-4) unstable; urgency=medium
+
+  * control: reduced supported arch to the ones working with nqp
+
+ -- Dominique Dumont <dod@debian.org>  Tue, 16 Sep 2014 10:32:55 +0200
+
+rakudo (2014.07-3) unstable; urgency=medium
+
+  * Put back dependency on exact version of nqp
+  * added a README.source to explain why
+
+ -- Dominique Dumont <dod@debian.org>  Sun, 14 Sep 2014 13:07:46 +0200
+
+rakudo (2014.07-2) unstable; urgency=medium
+
+  * rules: now use a versioned >= dep on nqp
+
+ -- Dominique Dumont <dod@debian.org>  Fri, 29 Aug 2014 15:14:44 +0200
+
+rakudo (2014.07-1) unstable; urgency=medium
+
+  * Imported Upstream version 2014.07
+  * control:
+    * fixed Vcs-Browser url to use cgit
+    * updated version of nqp and parrot dependencies
+
+ -- Dominique Dumont <dod@debian.org>  Thu, 28 Aug 2014 12:54:21 +0200
+
+rakudo (2014.03.01-1) unstable; urgency=low
+
+  [ Alessandro Ghedini ]
+  * Remove myself from Uploaders
+
+  [ Dominique Dumont ]
+  * Imported Upstream version 2014.03.01
+  * copyright: updated years
+  * added links for perl-p and perl-debug-p man page
+  * control: updated BD on nqp and parrot, added libgmp-dev
+
+ -- Dominique Dumont <dod@debian.org>  Sat, 12 Apr 2014 12:26:28 +0200
+
+rakudo (2014.01-1) unstable; urgency=medium
+
+  * New upstream release
+  * Bump versioned Build-Depends on nqp
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Thu, 20 Feb 2014 14:29:40 +0100
+
+rakudo (2013.12-1) unstable; urgency=medium
+
+  * New upstream release
+  * Bump versioned Build-Depends on nqp to 2013.12.1
+  * Bump Standards-Version to 3.9.5 (no changes needed)
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Mon, 23 Dec 2013 12:27:17 +0100
+
+rakudo (2013.11-1) unstable; urgency=low
+
+  * New upstream release
+  * Use --prefix instead of --with-nqp in Configure.pl
+  * Bump versioned nqp (Build-)Depends
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Sun, 24 Nov 2013 17:46:54 +0100
+
+rakudo (2013.10-1) unstable; urgency=low
+
+  * New upstream release
+  * Bump versioned nqp and parrot (Build-)Depends
+  * Fix vcs-field-not-canonical
+  * Do not Depends on parrot-devel anymore
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Fri, 01 Nov 2013 16:27:49 +0100
+
+rakudo (2013.03-1) unstable; urgency=low
+
+  * New upstream release
+  * Bump versioned (Build-)Depends on parrot and nqp
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Thu, 04 Apr 2013 17:53:29 +0200
+
+rakudo (2012.10-1) unstable; urgency=low
+
+  * New upstream release
+  * Bump parrot and nqp required versions
+  * Bump Standards-Version to 3.9.4 (no changes needed)
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Sun, 28 Oct 2012 13:22:43 +0100
+
+rakudo (0.1~2012.04.1-2) unstable; urgency=low
+
+  * Dynamically generate versioned depends on nqp during build
+    to fix 'Missing or wrong version of dependency ...' errors
+  * Remove not needed source/options file
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Tue, 12 Jun 2012 15:20:12 +0200
+
+rakudo (0.1~2012.04.1-1) unstable; urgency=low
+
+  * New upstream release
+  * Bump required nqp and parrot version
+  * Explicitly set nqp path during configure
+  * Re-word long description
+  * Use dh_parrot debhelper plugin
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Fri, 08 Jun 2012 15:50:16 +0200
+
+rakudo (0.1~2012.01-1) unstable; urgency=low
+
+  * New upstream release
+  * Depends on versioned parrot too (Closes: #653240)
+  * Bump debhelper compat level to 9
+  * Update debian/copyright format as in Debian Policy 3.9.3
+  * Bump Standards-Version to 3.9.3
+  * Update upstream copyright years
+  * (Build) depend on nqp too, update parrot version
+  * Build depend on libicu-dev (Closes: #669499)
+  * Email change: Alessandro Ghedini -> ghedo@debian.org
+  * Manually depend on parrotapi-X.Y.Z
+
+ -- Alessandro Ghedini <ghedo@debian.org>  Tue, 24 Apr 2012 17:04:08 +0200
+
+rakudo (0.1~2011.07-1) unstable; urgency=low
+
+  [ Alessandro Ghedini ]
+  * New upstream release
+  * Bump debhelper compat level to 8
+  * Update Dominique's email address
+  * Bump (Build-)Depends on parrot to 3.6.0
+  * Add Provides: perl6 field
+
+  [ Dominique Dumont ]
+  * debian/copyright: reformatted with config-edit
+  + debian/source/option: Build process creates a config.status
+    file. This option ignores it when checking source changes
+  * debian/control:
+    + added (Build-)Depends on libparrot3.6.0
+    * Slightly changed synopsis
+    * reformatted with config-edit
+
+ -- Dominique Dumont <dod@debian.org>  Sun, 07 Aug 2011 09:51:59 +0200
+
+rakudo (0.1~2011.04-1) unstable; urgency=low
+
+  * New upstream release (Closes: #601862, #585762, #577502)
+  * New maintainer
+  * Switch to 3.0 (quilt) format
+  * Update dependencies (Closes: #584498)
+  * Update debian/copyright to lastest DEP5 revision
+  * Do not generate/install perl6 manpage (now done by the build system)
+  * Enable tests
+  * Bump Standards-Version to 3.9.2 (no changes needed)
+  * Do not install extra LICENSE files and duplicated docs
+  * Remove debian/clean (no more needed)
+  * Add Vcs-* fields in debian/control
+  * Rewrite (short) description
+  * Update upstream copyright years
+  * Upload to unstable
+
+ -- Alessandro Ghedini <al3xbio@gmail.com>  Tue, 17 May 2011 11:31:09 +0200
+
+rakudo (0.1~2010.01-1) experimental; urgency=low
+
+  * generate a manpage from docs/running.pod
+  * update the d/watch file
+  * New Upstream Version
+    - update dependencies
+
+ -- Ryan Niebur <ryan@debian.org>  Mon, 29 Mar 2010 22:47:34 -0700
+
+rakudo (0.1~2009.09-3) experimental; urgency=low
+
+  * fix build-dependencies this time (Closes: 551115)
+  * remove perl6_group.* in clean
+
+ -- Ryan Niebur <ryan@debian.org>  Fri, 16 Oct 2009 22:34:27 -0700
+
+rakudo (0.1~2009.09-2) experimental; urgency=low
+
+  * make sure that version 1.6.0 of parrot-devel, parrot, and libparrot-
+    dev are installed
+
+ -- Ryan Niebur <ryan@debian.org>  Mon, 05 Oct 2009 17:00:01 -0700
+
+rakudo (0.1~2009.09-1) experimental; urgency=low
+
+  * initial release (closes: 544399)
+
+ -- Ryan Niebur <ryan@debian.org>  Sun, 04 Oct 2009 14:31:57 -0700

@@ -1,0 +1,3 @@
+version=3
+
+http://rakudo.org/downloads/rakudo/rakudo-([\d+\.]*).tar.gz

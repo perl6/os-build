@@ -1,0 +1,19 @@
+rakudo insists on using the exact version of nqp that was used for build.
+So rakudo package has a dependency like (nqp = 1.2.3-1).
+
+If nqp version does not match, rakudo bails out with something like:
+$ perl6 -e 'say "Hello";'
+Missing or wrong version of dependency 'gen/parrot/stage2/QRegex.nqp'
+current instr.: '' pc 16152 (src/gen/perl6-pod.pir:6351) (src/Perl6/Pod.nqp:499)
+called from Sub '' pc 1866 (gen/parrot/stage2/module_loader.pir:856) (src/vm/parrot/ModuleLoader.nqp:73)
+called from Sub '' pc 1894 (gen/parrot/stage2/module_loader.pir:865) (src/vm/parrot/ModuleLoader.nqp:55)
+called from Sub 'load_module' pc 1619 (gen/parrot/stage2/module_loader.pir:741) (src/vm/parrot/ModuleLoader.nqp:52)
+called from Sub '' pc 196787 (src/gen/perl6-actions.pir:77528) (src/Perl6/Actions.nqp:7469)
+called from Sub '' pc 1866 (gen/parrot/stage2/module_loader.pir:856) (src/vm/parrot/ModuleLoader.nqp:73)
+called from Sub '' pc 1894 (gen/parrot/stage2/module_loader.pir:865) (src/vm/parrot/ModuleLoader.nqp:55)
+called from Sub 'load_module' pc 1619 (gen/parrot/stage2/module_loader.pir:741) (src/vm/parrot/ModuleLoader.nqp:52)
+called from Sub '' pc 367287 (src/gen/perl6-grammar.pir:127329) (src/Perl6/Grammar.nqp:4463)
+called from Sub '' pc 1866 (gen/parrot/stage2/module_loader.pir:856) (src/vm/parrot/ModuleLoader.nqp:73)
+called from Sub '' pc 1894 (gen/parrot/stage2/module_loader.pir:865) (src/vm/parrot/ModuleLoader.nqp:55)
+called from Sub 'load_module' pc 1619 (gen/parrot/stage2/module_loader.pir:741) (src/vm/parrot/ModuleLoader.nqp:52)
+called from Sub '' pc 758 (src/gen/perl6.pir:285) (gen/parrot/main.nqp:54)

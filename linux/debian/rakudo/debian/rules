@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+
+PACKAGE = $(shell dh_listpackages)
+TMP     = $(CURDIR)/debian/$(PACKAGE)
+
+NQP_VERSION = $(shell dpkg -s nqp | sed -rne 's,^Version: (.+).*,\1,p')
+
+%:
+	dh $@ --with=parrot
+
+override_dh_auto_configure:
+	perl Configure.pl --prefix=/usr
+
+# rakudo needs a strict dependency version of nqp. See README.source
+# for details
+override_dh_gencontrol:
+	dh_gencontrol -- -Vnqp:Depends="nqp (= $(NQP_VERSION))"
+
+# fix extra-license-file by removing the LICENSE.gz file and remove
+# duplicated documents
+override_dh_auto_install:
+	dh_auto_install
+	$(RM)    $(TMP)/usr/share/doc/rakudo/LICENSE
+	$(RM) -r $(TMP)/usr/share/doc/rakudo/announce/
+	$(RM)    $(TMP)/usr/share/doc/rakudo/ChangeLog
