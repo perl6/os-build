@@ -1,7 +1,0 @@
-01_fix-example-interpreter-not-absolute.patch
-02_fix-version.patch
-04_use-dpkg-arch-in-dyncall-conf.patch
-06_disable-bigint-tests.patch
-07_disable-serialization-tests.patch
-force-dyncall-cflags
-skip-bad-failure-test
