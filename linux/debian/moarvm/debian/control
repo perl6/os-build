@@ -1,0 +1,16 @@
+Source: moarvm
+Maintainer: Rob Hoelz <rob@hoelz.ro>
+Section: interpreters
+Priority: optional
+Build-Depends: debhelper (>= 9),
+               perl
+Standards-Version: 3.9.6
+Homepage: http://moarvm.org/
+
+Package: moarvm
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Description: Virtual machine for Rakudo Perl 6
+ Short for "Metamodel On A Runtime", MoarVM is a virtual machine built
+ especially for Rakudo Perl 6 and the NQP Compiler Toolchain.
