@@ -6,7 +6,7 @@ TMP     = $(CURDIR)/debian/$(PACKAGE)
 NQP_VERSION = $(shell dpkg -s nqp | sed -rne 's,^Version: (.+).*,\1,p')
 
 %:
-	dh $@ --with=parrot
+	dh $@
 
 override_dh_auto_configure:
 	perl Configure.pl --prefix=/usr
