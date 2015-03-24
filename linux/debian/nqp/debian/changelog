@@ -1,3 +1,9 @@
+nqp (2015.03-1) unstable; urgency=medium
+
+  * update for release version 2015.03
+
+ -- Paul Cochrane <paul@liekut.de>  Tue, 24 Mar 2015 18:32:55 +0200
+
 nqp (2014.07-3) unstable; urgency=medium
 
   * control: restrict arch to i386 amd64 and arm*
