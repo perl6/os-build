@@ -30,7 +30,7 @@ deb: download-rakudo
 	tar -C $(DEBUILD_DIR) -xvzf $(DEBUILD_DIR)/rakudo_$(VERSION).orig.tar.gz
 	cp -r debian $(DEBUILD_DIR)/rakudo-$(VERSION)/
 	cd $(DEBUILD_DIR)/rakudo-$(VERSION)/debian; debuild -us -uc
-	@echo "Now check the .deb file in /var/cache/pbuilder/result"
+	@echo "Now check the .deb file in $(DEBUILD_DIR)"
 
 clean:
 	rm -rf $(RPMBUILD_DIR) $(DEBUILD_DIR)
