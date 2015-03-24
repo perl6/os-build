@@ -16,9 +16,8 @@ Homepage: https://github.com/perl6/nqp
 
 Package: nqp
 Architecture: i386 amd64 armel armhf kfreebsd-amd64 kfreebsd-i386
-Depends: ${shlibs:Depends},
-         ${misc:Depends},
-         ${moarvm:Depends}
+Depends: ${misc:Depends},
+         moarvm (>= 2015.03)
 Description: Not Quite Perl compiler
  "Not Quite Perl" is a compiler for quickly generating PIR routines from
  Perl6-like code. The key feature of NQP is that it's designed to be a very
