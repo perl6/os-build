@@ -1,0 +1,13 @@
+diff --git a/build/setup.pm b/build/setup.pm
+index f99a22d..92f742f 100755
+--- a/build/setup.pm
++++ b/build/setup.pm
+@@ -129,7 +129,7 @@ our %TC_POSIX = (
+     ccshared   => '-fPIC',
+     ldshared   => '-shared @ccshared@',
+     moarshared => '',
+-    ldrpath    => '-Wl,-rpath,@libdir@',
++    ldrpath    => '',
+ 
+     arflags => 'rcs',
+     arout   => '',
