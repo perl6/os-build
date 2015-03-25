@@ -1,1 +1,2 @@
 remove_ldrpath.patch
+add_soname_to_libmoar.patch
