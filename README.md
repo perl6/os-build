@@ -7,15 +7,15 @@ Build configurations for different OSes
 At present the directories in the project are laid out like so:
 
     linux/
-	arch/
-	    moarvm/
-	    nqp/
-	    rakudo/
-	debian/
-	    moarvm/
-	    nqp/
-	    rakudo/
-	fedora/
+        arch/
+            moarvm/
+            nqp/
+            rakudo/
+        debian/
+            moarvm/
+            nqp/
+            rakudo/
+        fedora/
 
 This is to say that various Linux distributions are collected under the
 `linux/` directory.  Under each distribution's directory are directories for
