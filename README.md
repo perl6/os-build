@@ -27,3 +27,18 @@ It is planned that over time one can add more operating systems than only
 Linux as well as to improve the list of supported Linux distributions and
 the overall structure so as to easily build all required packages for a
 given distribution with a simple `make`-like command.
+
+## Debian Linux
+
+To build the Debian packages, simply change into the `linux/debian`
+directory and run:
+
+    $ make all
+
+This will build the `moarvm`, `nqp` and `rakudo` projects, placing the
+generated `.deb` files in `/tmp/<project>_debuild/`.
+
+## Arch Linux
+
+Currently in development.  `PKGBUILD` files have been added for `moarvm`,
+`nqp` and `rakudo`.
