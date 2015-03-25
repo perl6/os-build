@@ -1,0 +1,23 @@
+pkgname=nqp
+pkgver=2015.03
+pkgrel=1
+pkgdesc="Not Quite Perl"
+arch=('i686' 'x86_64')
+url='https://github.com/perl6/nqp#readme'
+license=(PerlArtistic)
+depends=("moarvm=$pkgver")
+makedepends=('perl>=5.8')
+source=($pkgname-$pkgver.tar.gz::https://github.com/perl6/$pkgname/archive/$pkgver.tar.gz)
+sha256sums=('88f94a4d2608fbc27ef0fd38e840c209b3961b8e9ac6c542586345385b99cf90')
+
+build() {
+    cd "$srcdir/$pkgname-$pkgver"
+
+    perl Configure.pl --backends=moar --prefix=/usr
+    make
+}
+package() {
+    cd "$srcdir/$pkgname-$pkgver"
+    make DESTDIR="$pkgdir/" install
+}
+
