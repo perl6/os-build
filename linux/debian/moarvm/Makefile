@@ -13,6 +13,7 @@ download-moarvm: MoarVM-$(VERSION).tar.gz
 
 DEBUILD_DIR=/tmp/moarvm_debuild
 deb: download-moarvm
+	if [ -d $(DEBUILD_DIR) ]; then rm -r $(DEBUILD_DIR); fi
 	mkdir -p $(DEBUILD_DIR)
 	cp MoarVM-$(VERSION).tar.gz $(DEBUILD_DIR)/moarvm_$(VERSION).orig.tar.gz
 	tar -C $(DEBUILD_DIR) -xvzf $(DEBUILD_DIR)/moarvm_$(VERSION).orig.tar.gz

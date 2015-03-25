@@ -25,6 +25,7 @@ rpm: download-rakudo
 
 DEBUILD_DIR=/tmp/rakudo_debuild
 deb: download-rakudo
+	if [ -d $(DEBUILD_DIR) ]; then rm -r $(DEBUILD_DIR); fi
 	mkdir -p $(DEBUILD_DIR)
 	cp rakudo-$(VERSION).tar.gz $(DEBUILD_DIR)/rakudo_$(VERSION).orig.tar.gz
 	tar -C $(DEBUILD_DIR) -xvzf $(DEBUILD_DIR)/rakudo_$(VERSION).orig.tar.gz

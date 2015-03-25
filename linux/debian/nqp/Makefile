@@ -12,6 +12,7 @@ download-nqp: nqp-$(VERSION).tar.gz
 
 DEBUILD_DIR=/tmp/nqp_debuild
 deb: download-nqp
+	if [ -d $(DEBUILD_DIR) ]; then rm -r $(DEBUILD_DIR); fi
 	mkdir -p $(DEBUILD_DIR)
 	cp nqp-$(VERSION).tar.gz $(DEBUILD_DIR)/nqp_$(VERSION).orig.tar.gz
 	tar -C $(DEBUILD_DIR) -xvzf $(DEBUILD_DIR)/nqp_$(VERSION).orig.tar.gz
