@@ -8,6 +8,9 @@ At present the directories in the project are laid out like so:
 
     linux/
 	arch/
+	    moarvm/
+	    nqp/
+	    rakudo/
 	debian/
 	    moarvm/
 	    nqp/
