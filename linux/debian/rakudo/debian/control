@@ -10,7 +10,7 @@ Build-Depends: debhelper (>= 9),
                nqp (>= 2015.03),
                moarvm (>= 2015.03),
                perl
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-rakudo/pkg-rakudo.git
 Vcs-Git: git://anonscm.debian.org/pkg-rakudo/pkg-rakudo.git
 Homepage: http://rakudo.org/
