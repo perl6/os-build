@@ -1,5 +1,5 @@
 pkgname=rakudo
-pkgver=2015.05
+pkgver=2015.06
 pkgrel=1
 pkgdesc="Rakudo Perl 6 is a compiler for the Perl 6 programming language"
 arch=("i686" "x86_64")
@@ -8,7 +8,7 @@ license=(PerlArtistic)
 depends=("moarvm=$pkgver" "nqp=$pkgver")
 makedepends=("perl>=5.8" "moarvm=$pkgver" "nqp=$pkgver")
 source=($pkgname-$pkgver.tar.gz::https://github.com/rakudo/rakudo/archive/$pkgver.tar.gz)
-sha256sums=('edd7fc9ef559ab1b39f12f59bce641932baaf41ce83e08d2546a6e0026d9a395')
+sha256sums=('0aeabdecd68629094045d0bd25232944a0a36bbb7136e4fddaca9315e446cf5e')
 
 build() {
     cd "$srcdir/$pkgname-$pkgver"

@@ -1,5 +1,5 @@
 pkgname=nqp
-pkgver=2015.05
+pkgver=2015.06
 pkgrel=1
 pkgdesc="Not Quite Perl"
 arch=('i686' 'x86_64')
@@ -8,7 +8,7 @@ license=(PerlArtistic)
 depends=("moarvm=$pkgver")
 makedepends=('perl>=5.8')
 source=($pkgname-$pkgver.tar.gz::https://github.com/perl6/$pkgname/archive/$pkgver.tar.gz)
-sha256sums=('c3120c80cbfb8cb957d7fe9873fc4c049735231076ab0fcbac5e15c683c0f1cf')
+sha256sums=('80d528501a6843a9746b3060d230b080d3511720e9f4096087466e25703f4a82')
 
 build() {
     cd "$srcdir/$pkgname-$pkgver"
