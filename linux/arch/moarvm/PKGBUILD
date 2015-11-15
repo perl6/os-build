@@ -1,5 +1,5 @@
 pkgname=moarvm
-pkgver=2015.09
+pkgver=2015.10
 pkgrel=1
 pkgdesc="A virtual machine built especially for Rakudo Perl 6"
 arch=('i686' 'x86_64')
@@ -7,7 +7,7 @@ url='https://github.com/MoarVM/MoarVM'
 license=(PerlArtistic)
 makedepends=('perl>=5.8')
 source=($pkgname-$pkgver.tar.gz::http://moarvm.org/releases/MoarVM-$pkgver.tar.gz)
-sha256sums=('e93d1d2e918764971fd9e9fd68de73ad900abb25d224a5049a105aae54dba7d3')
+sha256sums=('2d05fbac7aa431d5a10625958df1f3d47963d79ede2c875f52fec3ea65ea445f')
 
 build() {
     cd "$srcdir/MoarVM-$pkgver"
